@@ -10,7 +10,7 @@ def health():
 
 @app.route('/hello')
 def hello():
-	return {"mensaje": "Hola desde el backend"}
+	return {"mensaje": "Hola desde el backend - v2"}
 
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', port=5000)
