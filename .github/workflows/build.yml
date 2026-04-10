@@ -1,0 +1,27 @@
+name: Build and push images
+
+on:
+  push:
+    branches:
+      - cicd
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Login en GitHub Registry
+        run: echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Build y push backend
+        run: |
+          docker build -t ghcr.io/carcharoth00/backend:v1 ./backend
+          docker push ghcr.io/carcharoth00/backend:v1
+
+      - name: Build y push frontend
+        run: |
+          docker build -t ghcr.io/carcharoth00/frontend:v1 ./frontend
+          docker push ghcr.io/carcharoth00/frontend:v1
