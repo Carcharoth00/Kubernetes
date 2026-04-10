@@ -1,7 +1,5 @@
 # Proyecto Kubernetes - Aprendizaje
 
-Arquitectura mínima para aprender Docker y Kubernetes.
-
 ## Servicios
 
 | Servicio | Tecnología | Puerto |
