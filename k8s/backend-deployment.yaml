@@ -12,10 +12,12 @@ spec:
       labels:
         app: backend
     spec:
+      imagePullSecrets:
+      - name: ghcr-secret
       containers:
       - name: backend
-        image: backend:v1
-        imagePullPolicy: Never
+        image: ghcr.io/carcharoth00/backend:v1
+        imagePullPolicy: Always
         ports:
         - containerPort: 5000
 ---
