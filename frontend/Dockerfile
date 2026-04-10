@@ -4,7 +4,11 @@ WORKDIR /app
 
 RUN flutter create .
 
-Run flutter build web --release
+COPY lib/main.dart lib/main.dart
+
+RUN flutter pub add http
+
+RUN flutter build web --release
 
 FROM nginx:alpine
 
